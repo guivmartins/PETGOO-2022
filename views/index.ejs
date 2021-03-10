@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/minty/bootstrap.min.css">
+    <title>Página de Inclusão</title>
+</head>
+
+<body style="background-image: url('https://i.imgur.com/y6TYPm2.png'); ">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">PetGoo!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor03">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Inicio<span class="sr-only">(current)</span></a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/show">Cadastros</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Entre em Contato</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/busca">Buscar!</a></li>
+            </ul>
+        </div>
+        </nav>
+    
+    <br>
+            <div class="col-3">
+        <div class="jumbotron">
+            
+                <h1 class="display-3">Cadastrar!</h1>
+                <form class="form-group" role="form" action="/" method="POST">
+            
+                    <div class="form-group">
+                        <label for="nome" class="control-label">Nome</label>
+                        <div class="col-11">
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome..." value=""
+                                required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bairro" class="control-label">Bairro</label>
+                        <div class="col-11">
+                            <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro..."
+                                value="" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="control-label">E-mail</label>
+                        <div class="col-11">
+                            <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                                placeholder="E-mail..." value="" required />
+                            <small id="emailHelp" class="form-text text-primary">Não compartilharemos seu email ; )</small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nomedopet" class="control-label">Nome do Pet</label>
+                        <div class="col-11">
+                            <input type="text" class="form-control" id="nomedopet" name="nomedopet" placeholder="Nome do Pet..."
+                                value="" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="racadopet" class="control-label">Raça do Pet</label>
+                        <div class="col-11">
+                            <input type="text" class="form-control" id="racadopet" name="racadopet" placeholder="Raça do Pet..."
+                                value="" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cordopet" class="control-label">Cor do Pet</label>
+                        <div class="col-11">
+                            <input type="text" class="form-control" id="cordopet" name="cordopet" placeholder="Cor do Pet..."
+                                value="" required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-11">
+                            <input id="submit" name="submit" type="submit" value="Salvar" class="btn btn-success">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>

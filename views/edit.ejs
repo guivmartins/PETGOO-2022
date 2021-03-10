@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+   <head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/minty/bootstrap.min.css">
+      <title>Página de Inclusão</title>
+   </head>
+   <body style="background-image: url('https://i.imgur.com/y6TYPm2.png'); ">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+         <a class="navbar-brand" href="/">PetGoo!</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+            aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="/">Inicio<span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/show">Cadastros</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/contact">Entre em Contato</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/busca">Buscar!</a>
+               </li>
+            </ul>
+         </div>
+         </nav>
+      <br>
+      <div class="col-3">
+         <div class="jumbotron">
+            <div class="col-12">
+               <% data.forEach(function(details) { %>
+               <form class="form-horizontal" role="form"  action="/edit/<%= details._id %>" method="POST">
+                  <div class="form-group">
+                     <label for="nome" class="control-label">Nome</label>
+                     <div class="col-sm-12">
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" value="<%= details.nome %>">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="bairro" class="control-label">Bairo</label>
+                     <div class="col-sm-12">
+                        <input type="text" class="form-control" id="bairro" name="bairro" placeholder="bairro"
+                           value="<%= details.bairro %>">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="email" class="control-label">E-mail</label>
+                     <div class="col-sm-12">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="email" value="<%= details.email %>">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="nomedopet" class="control-label">Nome do Pet</label>
+                     <div class="col-sm-12">
+                        <input type="text" class="form-control" id="nomedopet" name="nomedopet" placeholder="nomedopet" value="<%= details.nomedopet %>">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="racadopet" class="control-label">Raça do Pet</label>
+                     <div class="col-sm-12">
+                        <input type="text" class="form-control" id="racadopet" name="racadopet" placeholder="racadopet" value="<%= details.racadopet %>">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="cordopet" class="control-label">Cor do Pet</label>
+                     <div class="col-sm-12">
+                        <input type="text" class="form-control" id="cordopet" name="cordopet" placeholder="cordopet" value="<%= details.cordopet %>">
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <div class="col-sm-12 col-sm-offset-2">
+                        <input id="submit" name="submit" type="submit" value="Salvar" class="btn btn-primary">
+                     </div>
+                  </div>
+               </form>
+               <% }) %>
+            </div>
+         </div>
+      </div>
+      </div>
+</html>
