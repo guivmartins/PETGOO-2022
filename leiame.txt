@@ -1,1 +1,3 @@
 necessario instalar modulos do node com o comando NPM INSTALL
+
+Roda pa porta 3000
