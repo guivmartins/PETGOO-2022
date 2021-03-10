@@ -21,5 +21,13 @@
   "devDependencies": {
     "nodemon": "^1.19.4"
   },
-  "description": "teste"
+  "description": "teste",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guivmartins/PETGOO-2022.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guivmartins/PETGOO-2022/issues"
+  },
+  "homepage": "https://github.com/guivmartins/PETGOO-2022#readme"
 }
