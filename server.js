@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 var path = __dirname + '/views/';
 const ObjectId = require('mongodb').ObjectID
 const MongoClient = require('mongodb').MongoClient
+const http = require('http'); 
 const uri = "mongodb+srv://guivmartins:senha1234@cluster0.w9jfr.mongodb.net/PETGOO?retryWrites=true&w=majority"
 
 app.use(bodyParser.urlencoded({
@@ -61,22 +62,21 @@ app.route('/search')
 	.get((req, res) => {
 		var searchParams = req.query.query.toUpperCase().split(' ');
 		var db = require('/db');
-		var Customer = db.Mongoose.model('customers', db.CustomerSchema, 'customers');
+		var Customer = db.Mongoose.model('PETGOO', db.CustomerSchema, 'PETGOO.data');
 		Customer.find({
 			tags: {
 				$all: searchParams
 			}
 		}, function (e, docs) {
-			res.render('/busca', {
+			res.render('busca.ejs', {
 				results: true,
 				search: req.query.query,
 				list: docs
 			});
 		});
 	});
-
-
-app.route('/contact')
+	
+	app.route('/contact')
 	.get(function (req, res) {
 		res.render('contact.ejs')
 		//res.sendFile(path + "contact.html");
