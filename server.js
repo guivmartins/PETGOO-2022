@@ -1,3 +1,4 @@
+require('dotenv/config');
 const express = require('express')
 var expressValidator = require("express-validator");
 const app = express()
@@ -6,7 +7,7 @@ var path = __dirname + '/views/';
 const ObjectId = require('mongodb').ObjectID
 const MongoClient = require('mongodb').MongoClient
 const http = require('http'); 
-const uri = "mongodb+srv://guivmartins:senha1234@cluster0.w9jfr.mongodb.net/PETGOO?retryWrites=true&w=majority"
+const uri = process.env.DB_CONNECTION;
 
 app.use(bodyParser.urlencoded({
 	extended: true
@@ -16,8 +17,8 @@ MongoClient.connect(uri, (err, client) => {
 	if (err) return console.log(err)
 	db = client.db('PETGOO')
 
-	app.listen(3000, () => {
-		console.log('Servidor está rodando na porta 3000.')
+	app.listen(process.env.PORT, () => {
+		console.log(`Servidor está rodando na porta ${process.env.PORT}.`)
 	})
 })
 
