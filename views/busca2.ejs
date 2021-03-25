@@ -29,14 +29,13 @@
                <form action="/search" method="GET">
                <input class="form-control" type="text" name="query" placeholder="Raça, Cor">
                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-             </form>
+             </form> 
         </div>      
       </nav>
       <br>
-      <center>
-      <div class="col-5">
+      <div class="container">
          <div class="jumbotron">
-            
+            <center>
                <h1 class="display-3"> Buscar no AmyGoo </h1>
                <form action="/search" method="GET">
                   <div class="col-sm-5">
@@ -44,7 +43,50 @@
                      <br>
                      <input type="submit" value="Buscar" class="btn btn-primary" />
                   </div>
-                 </form>
-               </center>
+                  <div class="panel-body">
+                     <table class="table table-striped table-bordered table-list">
+                        <thead>
+                           <tr>
+                              <td>Nome</td>
+                              <td>Bairro</td>
+                              <td>E-mail</td>
+                              <td>Nome do Pet</td>
+                              <td>Raça do Pet</td>
+                              <td>Cor do Pet</td>
+                             
+                           </tr>
+                        </thead>
+                        <tbody>
+                           <% for(var i=0; i < data.length; i++) { %>
+                           <tr>
+                              </td>
+                              <td>
+                                 <%= data[i].nome %>
+                              </td>
+                              <td>
+                                 <%= data[i].bairro %>
+                              </td>
+                              <td>
+                                 <%= data[i].email %>
+                              </td>
+                              <td>
+                                 <%= data[i].nomedopet %>
+                              </td>
+                              <td>
+                                 <%= data[i].racadopet %>
+                              </td>
+                              <td>
+                                 <%= data[i].cordopet %>
+                              </td>
+                             
+                           </tr>
+                           <% } %>
+                        </tbody>
+                     </table>
+                  </div>
+               </form>
+            </center>
+         </div>
+      </div>
    </body>
 </html>

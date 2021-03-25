@@ -26,6 +26,12 @@ app.set('view engine', 'ejs')
 app.route('/')
 	.get(function (req, res) {
 		const cursor = db.collection('data').find()
+		res.render('login.ejs')
+	})
+
+	app.route('/index')
+	.get(function (req, res) {
+		const cursor = db.collection('data').find()
 		res.render('index.ejs')
 	})
 
@@ -48,33 +54,30 @@ app.route('/show')
 		})
 	})
 
-app.route('/busca')
+	app.route('/busca')
 	.get((req, res) => {
-		db.collection('data').find().toArray((err, results) => {
+		db.collection('data').find().toArray((err, data) => {
 			if (err) return console.log(err)
 			res.render('busca.ejs', {
-				data: results
+				data: data
 			})
 		})
 	})
 
 app.route('/search')
 	.get((req, res) => {
-		var searchParams = req.query.query.toUpperCase().split(' ');
-		var db = require('/db');
-		var Customer = db.Mongoose.model('PETGOO', db.CustomerSchema, 'PETGOO.data');
-		Customer.find({
-			tags: {
-				$all: searchParams
-			}
-		}, function (e, docs) {
-			res.render('busca.ejs', {
-				results: true,
-				search: req.query.query,
-				list: docs
-			});
-		});
-	});
+		db.collection('data').find({ $or: [{ nome: { '$regex': req.query.query } },
+		 { bairro: { '$regex': req.query.query } },
+		 { email: { '$regex': req.query.query } },
+		 { nomedopet: { '$regex': req.query.query } },
+		 { racadopet: { '$regex': req.query.query } },
+		 { cordopet: { '$regex': req.query.query } }] }).toArray((err, data) => {
+			if (err) return console.log(err)
+			res.render('busca2.ejs', {
+				data: data
+			})
+		})
+	})
 	
 	app.route('/contact')
 	.get(function (req, res) {
