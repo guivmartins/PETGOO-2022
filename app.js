@@ -8,17 +8,6 @@ const ObjectId = require('mongodb').ObjectID
 const MongoClient = require('mongodb').MongoClient
 const http = require('http'); 
 const uri = process.env.DB_CONNECTION;
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://guivmartins18:cesusc18@ds143293.mlab.com:43293/aulamongo');
- 
-var customerSchema = new mongoose.Schema({
-    nome: String,
-    bairro: String,
-    
-}, { collection: 'customers' }
-);
- 
-module.exports = { Mongoose: mongoose, CustomerSchema: customerSchema }
 
 app.use(bodyParser.urlencoded({
 	extended: true
