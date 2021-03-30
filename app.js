@@ -30,7 +30,7 @@ app.route('/')
 		res.render('login.ejs')
 	})
 
-	app.route('/index')
+app.route('/index')
 	.get(function (req, res) {
 		const cursor = db.collection('data').find()
 		res.render('index.ejs')
@@ -44,6 +44,7 @@ app.route('/')
 			res.redirect('/show')
 		})
 	})
+
 
 app.route('/show')
 	.get((req, res) => {
