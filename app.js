@@ -29,10 +29,10 @@ app.route('/')
 		res.render('login.ejs')
 	})
 
-app.route('/index')
+app.route('/registro')
 	.get(function (req, res) {
 		const cursor = db.collection('data').find()
-		res.render('index.ejs')
+		res.render('registro.ejs')
 	})
 
 	.post((req, res) => {
@@ -40,16 +40,16 @@ app.route('/index')
 			if (err) return console.log(err)
 
 			console.log('Dados gravados com sucesso.')
-			res.redirect('/show')
+			res.redirect('/exibe')
 		})
 	})
 
 
-app.route('/show')
+app.route('/exibe')
 	.get((req, res) => {
 		db.collection('data').find().toArray((err, results) => {
 			if (err) return console.log(err)
-			res.render('show.ejs', {
+			res.render('exibe.ejs', {
 				data: results
 			})
 		})
@@ -80,19 +80,19 @@ app.route('/search')
 		})
 	})
 	
-	app.route('/contact')
+	app.route('/contato')
 	.get(function (req, res) {
-		res.render('contact.ejs')
-		//res.sendFile(path + "contact.html");
+		res.render('contato.ejs')
+		//res.sendFile(path + "contato.html");
 	})
 
-app.route('/edit/:id')
+app.route('/editar/:id')
 	.get((req, res) => {
 		var id = req.params.id
 
 		db.collection('data').find(ObjectId(id)).toArray((err, result) => {
 			if (err) return res.send(err)
-			res.render('edit.ejs', {
+			res.render('editar.ejs', {
 				data: result
 			})
 		})
@@ -119,7 +119,7 @@ app.route('/edit/:id')
 			}
 		}, (err, result) => {
 			if (err) return res.send(err)
-			res.redirect('/show')
+			res.redirect('/exibe')
 			console.log('Dados atualizados com sucesso.')
 		})
 	})
@@ -132,7 +132,7 @@ app.route('/delete/:id')
 		}, (err, result) => {
 			if (err) return res.send(500, err)
 			console.log('Dado excluído com sucesso.')
-			res.redirect('/show')
+			res.redirect('/exibe')
 		})
 	})
 

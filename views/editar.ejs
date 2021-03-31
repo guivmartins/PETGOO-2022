@@ -16,10 +16,10 @@
                   <a class="nav-link" href="/">Inicio<span class="sr-only">(current)</span></a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="/show">Cadastros</a>
+                  <a class="nav-link" href="/exibe">Cadastros</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="/contact">Entre em Contato</a>
+                  <a class="nav-link" href="/contato">Entre em Contato</a>
                </li>
                <li class="nav-item">
                   <a class="nav-link" href="/busca">Buscar!</a>
@@ -37,7 +37,7 @@
          <div class="jumbotron">
             <div class="col-12">
                <% data.forEach(function(details) { %>
-               <form class="form-horizontal" role="form"  action="/edit/<%= details._id %>" method="POST">
+               <form class="form-horizontal" role="form"  action="/editar/<%= details._id %>" method="POST">
                   <div class="form-group">
                      <label for="nome" class="control-label">Nome</label>
                      <div class="col-sm-12">
