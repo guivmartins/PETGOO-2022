@@ -8,6 +8,7 @@ const ObjectId = require('mongodb').ObjectID
 const MongoClient = require('mongodb').MongoClient
 const http = require('http'); 
 const uri = process.env.DB_CONNECTION;
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({
 	extended: true
@@ -17,8 +18,8 @@ MongoClient.connect(uri, (err, client) => {
 	if (err) return console.log(err)
 	db = client.db('PETGOO')
 
-	app.listen(process.env.PORT, () => {
-		console.log(`Servidor está rodando na porta ${process.env.PORT}.`)
+	app.listen(PORT, () => {
+		console.log(`Servidor está rodando na porta ${PORT}.`)
 	})
 })
 
