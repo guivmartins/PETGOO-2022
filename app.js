@@ -6,7 +6,7 @@ var path = __dirname + '/views/';
 const ObjectId = require('mongodb').ObjectID
 const MongoClient = require('mongodb').MongoClient
 const uri = process.env.DB_CONNECTION;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT ||3000;
 
 app.use(bodyParser.urlencoded({
 	extended: true
