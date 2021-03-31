@@ -1,12 +1,10 @@
-require('dotenv/config');
+require('dotenv').config()
 const express = require('express')
-var expressValidator = require("express-validator");
 const app = express()
 const bodyParser = require('body-parser')
 var path = __dirname + '/views/';
 const ObjectId = require('mongodb').ObjectID
 const MongoClient = require('mongodb').MongoClient
-const http = require('http'); 
 const uri = process.env.DB_CONNECTION;
 const PORT = process.env.PORT || 3000;
 
