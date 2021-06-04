@@ -67,7 +67,7 @@ app.route('/exibe')
 
 app.route('/search')
 	.get((req, res) => {
-		db.collection('data').find({ $or: [{ nome: { '$regex': req.query.query } },
+		db.collection('data').find({ $or: [{ nome: { '$regex': req.query.query.toUpperCase } },
 		 { bairro: { '$regex': req.query.query } },
 		 { email: { '$regex': req.query.query } },
 		 { nomedopet: { '$regex': req.query.query } },
